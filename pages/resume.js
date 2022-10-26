@@ -7,7 +7,7 @@ import { TechStack, VersionControl, OtherTechStacks, Experiences } from '../comp
 
 const Resume = ({techStacks, versionControls, otherTechStacks, experiences}) => {
   return (
-    <>
+    <div id='resume'>
       <Head>
         <title>My Resume - skills & experience</title>
       </Head>
@@ -53,7 +53,7 @@ const Resume = ({techStacks, versionControls, otherTechStacks, experiences}) => 
             {/* <hr /> */}
             <div className='experience__stack'>
               <h2>Experiences</h2>
-              <p className='some-margins'>I’ve worked on a handful of web projects over the past 11 years, some of which were for the following organizations:</p>
+              <p className='small-margin'>I’ve worked on a handful of web projects over the past 11 years, some of which were for the following organizations:</p>
           
               <ul className='companies'>
                 {experiences?.map((experience) => <Experiences key={experience._id} experience={experience} /> )}
@@ -62,7 +62,7 @@ const Resume = ({techStacks, versionControls, otherTechStacks, experiences}) => 
         </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

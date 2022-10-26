@@ -12,19 +12,18 @@ const Experiences = ({experience}) => {
             <h3 style={{color: work.color}}>{work.company} <span className='inherent-color'>{work.name}</span></h3>
             <span className='stop'>{experience.year}</span>
           </header> 
-          <p className='points'>{work.desc}</p>
-          <ul 
-            className='points'
-            key={work.company}
-            // key={work.id}
-          >
-            {/* 
-              <li className='huge-dots'>{(work.points.length && work.points)}</li> */}
-          </ul>
+          <p className='work-info'>{work.desc}</p>
         </>
       ))}
+      <ul 
+        className='points'
+      >  
+        {experience?.points?.map((item, index) => (
+          <li key={index} className='huge-dots'>{item}</li>         
+        ))}
+      </ul>
     </li>
-  )
+  ) 
 }
 
 export default Experiences

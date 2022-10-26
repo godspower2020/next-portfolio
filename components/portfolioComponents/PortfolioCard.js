@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 import{ urlFor } from '../../lib/sanityClient';
 
-const PortfolioCard = ({portfolio: {imgUrl, name, projectLink, codeLink, slug, title, description, tags}, index}) => {
+const PortfolioCard = ({portfolio: {heroImg, name, projectLink, codeLink, slug, title, description, tags}, index}) => {
   return (
     <div>
         <Link href={`/portfolio/${slug.current}`}>
@@ -19,7 +19,7 @@ const PortfolioCard = ({portfolio: {imgUrl, name, projectLink, codeLink, slug, t
             >
                 <div className='app__work-img app__flex'>
                 <img 
-                    src={urlFor(imgUrl && imgUrl[0])}
+                    src={urlFor(heroImg)}
                     alt={name}
                 />
                 <motion.div
@@ -52,7 +52,7 @@ const PortfolioCard = ({portfolio: {imgUrl, name, projectLink, codeLink, slug, t
 
                 <div className='app__work-content app__flex'>
                 <h4 className='bold-text'>{title}</h4>
-                <p className='p-text' style={{ marginTop: 10}}>{description.substring(0, 80) + "..."}</p>
+                <p className='p-text' style={{ marginTop: 10}}>{description.substring(0, 80) + "...  see more"}</p>
                 <div className='app__work-tag app__flex'>
                     <p className='p-text'>{tags[0]}</p>
                 </div>

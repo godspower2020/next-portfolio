@@ -1,6 +1,6 @@
 export default {
-    name:'workExperience',
-    title:'Work Experience',
+    name:'startYearWorkExperience',
+    title:'start year Work Experience',
     type:'document',
     fields:[
            {

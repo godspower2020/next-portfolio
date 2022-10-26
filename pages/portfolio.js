@@ -27,7 +27,7 @@ const Portfolio = ({portfolios, filterPortfolio}) => {
     }
 
   return (
-    <>
+    <div id='portfolio'>
       <Head>
         <title>My Portfolio - works</title>
       </Head>
@@ -59,7 +59,7 @@ const Portfolio = ({portfolios, filterPortfolio}) => {
             {filterPortfolio.map((portfolio, index) => <PortfolioCard key={portfolio._id} portfolio={portfolio} index={index} /> )}
           </motion.div>
       </div>
-    </>
+    </div>
   )
 }
 
@@ -70,7 +70,7 @@ export const getServerSideProps = async () => {
   
     return {
       props: { portfolios, filterPortfolio }
-    }
+    } 
   }
 
 export default Portfolio

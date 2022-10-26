@@ -1,5 +1,4 @@
 export { default as Navbar } from './Navbar';
-// export { default as Contact } from './Contact/Contact';
-// export { default as Footer } from './Footer/Footer';
+export { default as Contact } from './Contact';
 export { default as SocialMedia } from './SocialMedia';
 export { default as NavigationDots } from './NavigationDots';

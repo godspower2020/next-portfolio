@@ -29,8 +29,13 @@ export default {
         type:'string'
       },
       {
-        name:'solution',
-        title:'Solution',
+        name:'solutionOne',
+        title:'Solution One',
+        type:'string'
+      },
+      {
+        name:'solutionTwo',
+        title:'Solution Two',
         type:'string'
       },
       {
@@ -47,6 +52,14 @@ export default {
         name: 'codeLink',
         title: 'Code Link',
         type: 'string',
+      },
+      {
+        name: 'heroImg',
+        title: 'Hero Image',
+        type: 'image',
+        options: {
+          hotspot: true,
+        }
       },
       {
         name: 'imgUrl',
