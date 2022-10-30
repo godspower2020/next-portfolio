@@ -6,11 +6,7 @@ import { RiSendPlaneLine  } from 'react-icons/ri';
 import toast, { Toaster } from "react-hot-toast";
 import {motion} from 'framer-motion'
 
-import { client } from '../lib/sanityClient';
-
-const initialState = {name: '', email: '', message: ''}
-
-const navLinks = [
+const navLinks = [ 
   { name: "Home", 
    path: "/" 
   },
@@ -24,11 +20,15 @@ const navLinks = [
   },
 ];
 
+const initialState = {name: '', email: '', message: ''}
+
 const Contact = () => {
+  const today= new Date()
+  const year= today. getFullYear()
+
   const router = useRouter();
   
   const [formData, setFormData] = useState(initialState);
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const { name, email, message } = formData;
@@ -41,25 +41,34 @@ const Contact = () => {
   const handleSubmit = () => {
     setLoading(true);
 
-    const contact = {
+    const mutations = [{
+      create: {
       _type: 'contact',
       name: name,
       email: email,
       message: message,
-    };
+      }
+    }]
 
-    client.create(contact)
-      .then(() => {
-        setLoading(false);
-        setIsFormSubmitted(true);
-        setFormData(initialState)
-        toast.success('Form successfully submitted')
-      })
-      .catch((err) => console.log(err));
+    fetch(`https://78gvtlsb.api.sanity.io/v2022-03-10/data/mutate/production`, {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json',
+        Authorization: `Bearer skfTjT98YpdOx7jCGSxnglDJkp0dqOoicylDhWZ3pySl7HIspdKwX6nDUqSpcQVTbCjDsiO9TDfpoqczD4JqwJknuDf9dKIudbjPWZ4b0Vy958XXi2Yz7klWjAHKf5nCSitMDVOTw3SPZApzy4bcMIEdvxwS3qCWcT5PlFICIROgCy9hMlqh`
+      },
+      body: JSON.stringify({mutations})
+    })
+    
+    .then(response => response.json())
+    .then(result => console.log(result))
+
+    .then(() => {
+      setLoading(false);
+      setFormData(initialState)
+      toast.success('Form successfully submitted')
+    })
+    .catch(error => console.error(error))
   };
-
-  const today= new Date()
-  const year= today. getFullYear()
 
   return (
     <div id='Contact'>

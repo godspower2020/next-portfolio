@@ -32,7 +32,7 @@ const Home = ( {idName, classNames, heroItems, abouts, skills, experience, testi
   return (
     <div id='home' className='home'>
       <Head>
-        <title>Augustine Godspower | Frontend Developer, fullstack Developer & UI/UX expert</title>
+        <title>Augustine Godspower: Frontend Developer & UI/UX expert</title>
       </Head>
       <div className={`app ${classNames}`}>
         <Navbar />
@@ -71,7 +71,7 @@ const Home = ( {idName, classNames, heroItems, abouts, skills, experience, testi
             </div>
           </div>
         </div>
-        <div  id="Spotlights" className='about app__container'>
+        <div id="Spotlights" className='app__container'>
           <div className='app__wrapper app__flex'>
             <motion.div
               whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
@@ -79,20 +79,7 @@ const Home = ( {idName, classNames, heroItems, abouts, skills, experience, testi
               className={`${classNames} app__flex`}
             >
               <div>
-                <div className="about__spotlight-home app__flex__justify-content-space-between">
-                  {/* <p className="spotlight p-text">spltlight</p> */}
-                  <h2 className="head-text">Spotlight</h2>
-                  {/* <div className="spotlight__container">
-                    <p className="spotlight-text">
-                      finding solutions to problems facing mankind through technological advancement and helping millions build whats next for their business.  
-                    </p>
-                    <p className="spotlight-text">
-                      I craft beautiful and functional User Interfaces working with tools such as Figma, Adobe Illustrator and Adobe Photoshop.
-                      Armed with reactjs, nextjs, Nodejs, ExpressJs, EJS and MongoDB, I build Frontend, Server side applications & Backend services
-                    </p>
-                  </div> */}
-                </div>
-
+                <h2 className='head-text'>Spotlight</h2>
                 <div className="app__profiles app__flex__align-items-flex-start">
                   {abouts?.map((about) => <About key={about._id} about={about} /> )}
                 </div>
@@ -100,6 +87,16 @@ const Home = ( {idName, classNames, heroItems, abouts, skills, experience, testi
             </motion.div>
           </div>
         </div>
+        {/* <div id='Quota' className='app__container'>
+          <div className='app__wrapper app__flex'>
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+          </div>
+        </div> */}
         <div id='Experiences' className='app__container'>
           <div className='app__wrapper app__flex'>
             <motion.div

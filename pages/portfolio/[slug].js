@@ -6,7 +6,7 @@ import { BsArrowLeftBsArrowLeft } from 'react-icons/bs';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 
 import{ client, urlFor } from '../../lib/sanityClient';
-import { Navbar } from '../../components'
+import { Navbar, Contact } from '../../components'
 
 const PortfolioDetails = ({ portfolio: {description, companyNeeds, problemsFaced, solutionOne, solutionTwo, conclusion, company, slug, works, title, imgUrl}}) => {
   const [index, setIndex] = useState(0)
@@ -77,6 +77,7 @@ const PortfolioDetails = ({ portfolio: {description, companyNeeds, problemsFaced
               </div>
           </div>
       </div>
+      <Contact />
     </div>
   ) 
 }

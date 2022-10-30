@@ -5,16 +5,20 @@ import Image from 'next/image'
 import { motion } from 'framer-motion';
 
 const navLinks = [
-  { name: "Home", 
-   path: "/" 
+  { 
+    name: 'Home', 
+    path: '/',
+    target: 'none'
   },
   { 
-    name: "My Portfolio",
-    path: "/portfolio", 
+    name: 'My Portfolio',
+    path: '/portfolio', 
+    target: 'none'
   },
   {
-    name: "My Resume",
-    path: "/resume",
+    name: 'My Resume',
+    path: '/resume',
+    target: '_blank'
   },
 ];
 
@@ -25,6 +29,7 @@ const Navbar = () => {
   const [toggleIcon, setToggleIcon] = useState('nav__toggler')
 
   const navToggle = () => {
+    // show & unshow the nav menu
     active === 'app__Navbar-menu' ? setActive('app__Navbar-menu nav__active') : setActive('app__Navbar-menu') 
 
     // ToggleIcon
@@ -36,14 +41,15 @@ const Navbar = () => {
 
       <div className="app__Navbar-logo app__flex__justify-content-flex-start">
         <Link href='/'>
-          <Image src="/logo.png" alt="logo" width="90" height="20" />
+          {/* <h1><span className='blue'>AUGU</span><span className='gray'>STINE</span></h1> */}
+          <h1><span className='blue'>A</span></h1>
         </Link>
       </div>
       
       <div className={`${active} app__flex`}> 
         <ul className='app__flex__justify-align-flex-start'>
         {navLinks.map((item, index) => (
-          <Link className='menu_link' key={index} href={item.path}>{item.name}</Link>
+          <Link className='menu_link' target={item.target} key={index} href={item.path}>{item.name}</Link>
         ))}
         </ul> 
       </div>

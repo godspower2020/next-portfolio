@@ -14,7 +14,7 @@ const navDots = [
   {
     name: 'Testimonial',
   },
-  {
+  { 
     name: 'Contact',
   },
 ];
@@ -36,7 +36,7 @@ const NavigationDots = () => {
               to={item.name}
               spy={true} 
               smooth={true} 
-              offset={50} 
+              offset={-1} 
               duration={0} 
               key={item + index}
               className={`${active}`}
