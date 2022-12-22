@@ -15,7 +15,7 @@ export default {
             },
             {
               name:'color',
-              title:'Color',
+              title:'Color', 
               type:'string'
             },
             {

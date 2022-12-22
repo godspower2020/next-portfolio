@@ -5,9 +5,9 @@ const navDots = [
   { 
     name: 'Hero',
   },
-  {
-    name: 'Spotlights',
-  },
+  // {
+  //   name: 'Spotlights',
+  // },
   {
     name: 'Experiences',
   },
@@ -23,7 +23,7 @@ const NavigationDots = () => {
   const [active, setActive] = useState('app__navigation-dot')
 
   const animateActiveDot = () => {
-    active === 'app__navigation-dot' ? setActive('app__navigation-dot active-dot') : setActive('app__navigation-dot')
+    // active === 'app__navigation-dot' ? setActive('app__navigation-dot app__navigation-dot-active') : setActive('app__navigation-dot')
   }
 
   return (
@@ -33,13 +33,13 @@ const NavigationDots = () => {
             <span>{item.name}</span>
             <Link
               onClick={animateActiveDot}
+              className={`${active}`}
               to={item.name}
               spy={true} 
               smooth={true} 
-              offset={-1} 
+              offset={0} 
               duration={0} 
               key={item + index}
-              className={`${active}`}
             />
           </div>
         ))}

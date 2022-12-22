@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 import { useRouter } from "next/router";
-import Image from 'next/image'
 import { motion } from 'framer-motion';
 
 const navLinks = [
   { 
     name: 'Home', 
     path: '/',
-    target: 'none'
+    target: ''
   },
   { 
     name: 'My Portfolio',
     path: '/portfolio', 
-    target: 'none'
+    target: ''
   },
   {
     name: 'My Resume',
@@ -23,10 +22,17 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const router = useRouter();
-
+  const [navbar, setNavbar] = useState('app__Navbar')
+  const [menulink, setMenulink] = useState('menu_link')
   const [active, setActive] = useState('app__Navbar-menu')
   const [toggleIcon, setToggleIcon] = useState('nav__toggler')
+
+  const router = useRouter()
+  
+  useEffect(() => {
+    router.pathname == '/' ? setNavbar('app__Navbar app__Navbar-fixed') : setNavbar('app__Navbar')
+    // router.pathname == '/' ? setMenulink('menu_link menu_link-hide') : setMenulink('menu_link')
+  }, []);
 
   const navToggle = () => {
     // show & unshow the nav menu
@@ -37,11 +43,10 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="app__Navbar app__flex__justify-content-space-between">
+    <nav className={`${navbar} app__flex__justify-content-space-between`}>
 
       <div className="app__Navbar-logo app__flex__justify-content-flex-start">
         <Link href='/'>
-          {/* <h1><span className='blue'>AUGU</span><span className='gray'>STINE</span></h1> */}
           <h1><span className='blue'>A</span></h1>
         </Link>
       </div>
@@ -49,7 +54,9 @@ const Navbar = () => {
       <div className={`${active} app__flex`}> 
         <ul className='app__flex__justify-align-flex-start'>
         {navLinks.map((item, index) => (
-          <Link className='menu_link' target={item.target} key={index} href={item.path}>{item.name}</Link>
+          <p className={menulink}>
+            <Link target={item.target} key={index} href={item.path}>{item.name}</Link>
+          </p>
         ))}
         </ul> 
       </div>

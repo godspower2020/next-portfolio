@@ -7,6 +7,7 @@ import abouts from './abouts'
 import contact from './contact'
 import experiences from './experiences'
 import heroItems from './heroItems'
+import heroTitles from './heroTitles'
 import otherTechStacks from './otherTechStacks'
 import portfolios from './portfolios'
 import skills from './skills'
@@ -27,6 +28,7 @@ export default createSchema({
     contact,
     experiences,
     heroItems,
+    heroTitles,
     otherTechStacks,
     portfolios,
     skills,

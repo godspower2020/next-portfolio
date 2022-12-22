@@ -23,15 +23,15 @@ const navLinks = [
 const initialState = {name: '', email: '', message: ''}
 
 const Contact = () => {
-  const today= new Date()
-  const year= today. getFullYear()
-
-  const router = useRouter();
-  
   const [formData, setFormData] = useState(initialState);
   const [loading, setLoading] = useState(false);
+  
+  const router = useRouter();
 
   const { name, email, message } = formData;
+  
+  const today= new Date()
+  const year= today. getFullYear()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,11 +50,13 @@ const Contact = () => {
       }
     }]
 
+    const sanityToken = process.env.NEXT_SANITY_TOKEN
+
     fetch(`https://78gvtlsb.api.sanity.io/v2022-03-10/data/mutate/production`, {
       method: 'post',
       headers: {
         'Content-type': 'application/json',
-        Authorization: `Bearer skfTjT98YpdOx7jCGSxnglDJkp0dqOoicylDhWZ3pySl7HIspdKwX6nDUqSpcQVTbCjDsiO9TDfpoqczD4JqwJknuDf9dKIudbjPWZ4b0Vy958XXi2Yz7klWjAHKf5nCSitMDVOTw3SPZApzy4bcMIEdvxwS3qCWcT5PlFICIROgCy9hMlqh`
+        Authorization: `Bearer ${sanityToken}`
       },
       body: JSON.stringify({mutations})
     })

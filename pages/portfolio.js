@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { motion } from 'framer-motion';
 
@@ -6,24 +6,28 @@ import{ client } from '../lib/sanityClient';
 import { Navbar, SocialMedia } from '../components'
 import { PortfolioCard } from '../components/portfolioComponents';
 
-const Portfolio = ({portfolios, filterPortfolio}) => {
-    // const [filterPortfolio, setFilterPortfolio] = useState([])
-    const [activeFilter, setActiveFilter] = useState('UI/UX');
-    const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
+const Portfolio = ({portfolios}) => {
+    const [filterPortfolio, setFilterPortfolio] = useState([])
+    const [activeFilter, setActiveFilter] = useState('All');
+    const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 }) 
+
+    useEffect(() => {
+      setFilterPortfolio(portfolios)
+    }, [])
 
     const handlePortfolioFilter = (item) => {
-        setActiveFilter(item)
-        setAnimateCard([{y: 100, opacity: 0}])
+      setActiveFilter(item)
+      setAnimateCard([{y: 100, opacity: 0}])
 
-        setTimeout(() => {
+      setTimeout(() => {
         setAnimateCard([{y: 0, opacity: 1}])
 
-        if(item === 'UI/UX') {
+        if(item === 'All') {
             setFilterPortfolio(portfolios)
         } else {
             setFilterPortfolio(portfolios.filter((portfolio) => portfolio.tags.includes(item)))
         }
-        }, 500);
+      }, 500);
     }
 
   return (
@@ -33,14 +37,10 @@ const Portfolio = ({portfolios, filterPortfolio}) => {
       </Head>
       <div className='app'>
         <Navbar />
-        <SocialMedia />
-          <h5 className='head-text remove-top-margin'>/PORTFOLIO.</h5>
-          <h6 className="head-text reduce-h6-top-margin">
-          selected <span>projects</span> I've worked on in the past.
-          </h6>
+          <h5 className='head-text remove-top-margin'>MY PORTFOLIO</h5>
 
           <div className="app__work-filter">
-            {['UI/UX', 'Web App', 'Mobile App', 'React Js', 'e-commerce', 'WordPress', 'All'].map((item, index) => (
+            {['All', 'e-commerce', 'UI/UX', 'Web-App'].map((item, index) => (
               <div
                 key={index}
                 onClick={() => handlePortfolioFilter(item)}
@@ -66,10 +66,9 @@ const Portfolio = ({portfolios, filterPortfolio}) => {
 export const getServerSideProps = async () => {
     const query = '*[_type == "portfolios"]';
     const portfolios = await client.fetch(query);
-    const filterPortfolio = await client.fetch(query);
   
     return {
-      props: { portfolios, filterPortfolio }
+      props: { portfolios }
     } 
   }
 

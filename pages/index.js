@@ -1,43 +1,83 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import Slider from "react-slick";
+import { useRouter } from "next/router";
 import {motion} from 'framer-motion'
 
 import{ client } from '../lib/sanityClient';
 import { Hero, About, Skills, Experiences, Testimonials } from '../components/homeComponents'
 import { Navbar, Contact, NavigationDots, SocialMedia } from '../components'
 
-const Home = ( {idName, classNames, heroItems, abouts, skills, experience, testimonials} ) => {
+const Home = ( {classNames, heroTitles, heroItems, abouts, skills, experience, testimonials} ) => {
+  const [scroll, setScroll] = useState('home')
   
-  const hero = [
-      'Frontend Developer', 
-      'UI/UX Engineer', 
-      'Designer'
-  ];
+  // const hero = [
+  //   { 
+  //     title: 'Frontend Developer', 
+  //     color: '#313bac',
+  //   },
+  //   { 
+  //     title: 'UI/UX Engineer',
+  //     color: 'green', 
+  //   },
+  //   {
+  //     title: 'Designer',
+  //     color: 'red',   
+  //   }
+  // ];
 
-  const [title, setTitle] = useState(hero[0])
+  // const [title, setTitle] = useState(hero)
+  // // const [activeTitle, setActiveTitle] = useState({})
+  // // const [showActiveTitle, setShowActiveTitle] = useState(false)
+  // const [animateTitle, setAnimateTitle] = useState({ y: 0, opacity: 1 }) 
 
+  // useEffect(() => {
+  //   setTitle(hero)
+  //   // setActiveTitle(hero[0])
+  //   setAnimateTitle([{y: 100, opacity: 0}])
+
+  //   const scrollText = (hero) => {
+  //     for(let i = 0; i < hero.length; i++){
+        
+  //       setTimeout(() => {
+  //         // setShowActiveTitle(true)
+  //         setTitle(hero)
+  //         setAnimateTitle([{y: 0, opacity: 1}])
+
+  //         setTimeout(() => {
+  //           // setShowActiveTitle(false)
+  //           setAnimateTitle([{y: 0, opacity: 0}])
+  //         }, 1000)
+  //       }, 1000)
+  //     }
+  //   }
+  // scrollText(hero)
+  // }, [])
+
+  const settings = {
+    className: "center app__profiles app__flex__align-items-flex-start",
+    centerMode: true,
+    infinite: false,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500
+  };
+
+  const router = useRouter()
+  
   useEffect(() => {
-    const scrollText = (hero) => {
-      console.log(hero)
-      // for(let i = 0; i < hero.length; i++){
-      //   setTimeout(() => {
-      //     setTitle(hero[i])
-      //   }, 1000)
-      // }
-  }
-  scrollText(hero)
-  }, [])
+    router.pathname == '/' ? setScroll('home home-noscroll') : setScroll('home')
+  }, []);
   
-
   return (
     <div id='home' className='home'>
       <Head>
-        <title>Augustine Godspower: Frontend Developer & UI/UX expert</title>
+        <title>Augustine Godspower | Frontend Developer & UI/UX expert</title>
       </Head>
-      <div className={`app ${classNames}`}>
+      <div id='noscroll' className={`app ${classNames}`}>
         <Navbar />
         <SocialMedia />
-        <NavigationDots active={idName} />
+        <NavigationDots />
         <div id="Hero" className='app__container'>
           <div className='app__wrapper app__flex'>
             <div className="app__header app__flex">
@@ -48,7 +88,13 @@ const Home = ( {idName, classNames, heroItems, abouts, skills, experience, testi
               >
                 <div className="app__header-badge app__flex__justify-align-flex-start">
                   <div className="div-margin hero__animated-text">
-                    <p className="p-text line">{title}</p>
+                      {/* {title?.map((item, index) => 
+                      <motion.p 
+                      className="p-text line"
+                      animate={animateTitle}
+                    > 
+                    {item}
+                    </motion.p>)} */}
                   </div>
                   <div className="div-margin hero__text-div">
                     <div className='no-wrap'>Talk about:</div> 
@@ -71,7 +117,7 @@ const Home = ( {idName, classNames, heroItems, abouts, skills, experience, testi
             </div>
           </div>
         </div>
-        <div id="Spotlights" className='app__container'>
+        {/* <div id="Spotlights" className='app__container'>
           <div className='app__wrapper app__flex'>
             <motion.div
               whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
@@ -80,21 +126,40 @@ const Home = ( {idName, classNames, heroItems, abouts, skills, experience, testi
             >
               <div>
                 <h2 className='head-text'>Spotlight</h2>
-                <div className="app__profiles app__flex__align-items-flex-start">
-                  {abouts?.map((about) => <About key={about._id} about={about} /> )}
-                </div>
+                  <div className="app__profiles app__flex__align-items-flex-start">
+                    {abouts?.map((about) => <About key={about._id} about={about} /> )}
+                  </div>
               </div>
             </motion.div>
           </div>
         </div>
-        {/* <div id='Quota' className='app__container'>
+        <div id='Quota' className='app__container'>
           <div className='app__wrapper app__flex'>
-            <div>
+            <motion.div
+                whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
+                transition={{duration: 0.9}}
+                className={`${classNames} app__flex`}
+              >
+              <div className='spatial'>
+                <h2 className='head-text'>6 years an Engineer </h2>
+                <p>I've built products for companies and businesses around the globe ranging from marketing websites to complex solutions and enterprise apps with focus on fast, elegant and accessible user experiences.
 
-            </div>
-            <div>
+Currently, I work at Shopify as a Senior UX Developer and Accessibility advocate crafting thoughtful and inclusive experiences that adhere to web standards for over a million merchants across the world.
 
-            </div>
+Before now, I was Principal Frontend Engineer at hellotax, where I worked on a suite of tools and services tailored at providing fast, automated VAT Registration / filings & Returns solutions for multi-channel sellers across Europe.
+
+Prior to hellotax, I was Senior frontend engine</p>
+              </div>
+              <div className='spatial'>
+              <p>I've built products for companies and businesses around the globe ranging from marketing websites to complex solutions and enterprise apps with focus on fast, elegant and accessible user experiences.
+
+Currently, I work at Shopify as a Senior UX Developer and Accessibility advocate crafting thoughtful and inclusive experiences that adhere to web standards for over a million merchants across the world.
+
+Before now, I was Principal Frontend Engineer at hellotax, where I worked on a suite of tools and services tailored at providing fast, automated VAT Registration / filings & Returns solutions for multi-channel sellers across Europe.
+
+Prior to hellotax, I was Senior frontend engine</p>
+              </div>
+            </motion.div>
           </div>
         </div> */}
         <div id='Experiences' className='app__container'>
@@ -139,8 +204,11 @@ const Home = ( {idName, classNames, heroItems, abouts, skills, experience, testi
 }
 
 export const getServerSideProps = async () => {
-  const query = '*[_type == "heroItems"]';
-  const heroItems = await client.fetch(query);
+  const query = '*[_type == "heroTitles"]';
+  const heroTitles = await client.fetch(query);
+
+  const heroItemsQuery = '*[_type == "heroItems"]';
+  const heroItems = await client.fetch(heroItemsQuery);
 
   const aboutQuery = '*[_type == "abouts"]';
   const abouts = await client.fetch(aboutQuery);
@@ -155,7 +223,7 @@ export const getServerSideProps = async () => {
   const testimonials = await client.fetch(testimonialsQuery);
 
   return {
-    props: { heroItems, abouts, skills, experience, testimonials }
+    props: { heroTitles, heroItems, abouts, skills, experience, testimonials }
   }
 }
 

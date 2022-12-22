@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import { motion } from 'framer-motion';
 import Link from 'next/link'
 import Head from 'next/head'
-import { BsArrowLeftBsArrowLeft } from 'react-icons/bs';
+import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 
 import{ client, urlFor } from '../../lib/sanityClient';
 import { Navbar, Contact } from '../../components'
 
-const PortfolioDetails = ({ portfolio: {description, companyNeeds, problemsFaced, solutionOne, solutionTwo, conclusion, company, slug, works, title, imgUrl}}) => {
+const PortfolioDetails = ({ portfolio: {description, codeLink, companyNeeds, problemsFaced, solutionOne, solutionTwo, conclusion, company, slug, works, title, imgUrl}}) => {
   const [index, setIndex] = useState(0)
 
   const handleClick = (i) => {
@@ -18,13 +18,13 @@ const PortfolioDetails = ({ portfolio: {description, companyNeeds, problemsFaced
   return (
     <div className='grey-bg'>
       <Head>
-        <title>{slug.current} - My Portfolio</title>
+        <title>{slug.current} - Augustin's Portfolio</title>
       </Head>
       <Navbar />
       <div>
           <div className="back">
             <Link href="/portfolio">
-              {/* <BsArrowLeftBsArrowLeft /> */} Back
+              <HiOutlineArrowNarrowLeft />
             </Link>
           </div>
           <div className='portfolio-detail-container'>
@@ -56,7 +56,8 @@ const PortfolioDetails = ({ portfolio: {description, companyNeeds, problemsFaced
               </div>
             </div>
             
-            <div className="details-text-company-works">
+            <div>
+              <div className="details-text-company-works">
                 <div className="details-text">
                   <p>{description}</p>
                   <p>{companyNeeds}</p>
@@ -75,6 +76,11 @@ const PortfolioDetails = ({ portfolio: {description, companyNeeds, problemsFaced
                   </div>
                 </div>
               </div>
+              <div className="project__code-link">
+                <span className='bold'>Website</span>
+                <p>Visit <span><a href={codeLink}>{title}</a></span></p>
+              </div>
+            </div>
           </div>
       </div>
       <Contact />

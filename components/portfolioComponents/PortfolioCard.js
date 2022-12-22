@@ -1,62 +1,42 @@
 import React from 'react'
 import Link from 'next/link'
-import { AiFillGithub } from 'react-icons/ai';
-import { BsGlobe } from 'react-icons/bs';
 import { motion } from 'framer-motion';
 
 import{ urlFor } from '../../lib/sanityClient';
 
-const PortfolioCard = ({portfolio: {heroImg, name, projectLink, codeLink, slug, title, description, tags}, index}) => {
+const PortfolioCard = ({portfolio: {heroImg, name, appleColor, projectLink, subProjectLink, slug, title, tags}, index}) => {
   return (
     <div>
         <Link href={`/portfolio/${slug.current}`}>
             <motion.div 
                 whileInView={{ opacity: 1 }}
-                whileHover={{ scale:1.08 }}
+                whileHover={{ scale:1.02 }}
                 transition={{ duration: 0.5, type: 'tween' }}
-                className='app__work-item app__flex'
+                className='app__work-item'
                 key={index}
             >
+                <div className='colorful__apple-dots'>
+                    <div style={{backgroundColor: appleColor}}></div>
+                    <div style={{backgroundColor: appleColor}}></div>
+                    <div style={{backgroundColor: appleColor}}></div>
+                </div>
                 <div className='app__work-img app__flex'>
-                <img 
-                    src={urlFor(heroImg)}
-                    alt={name}
-                />
-                <motion.div
-                    whileHover={{opacity: [0, 1]}}
-                    transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
-                    className='app__work-hover app__flex'
-                >
-                    <a href={projectLink} target="_blank" rel="noreferrer">
-                    <motion.div
-                        whileInView={{scale: [0, 1]}}
-                        whileHover={{scale: [1, 0.9]}}
-                        transition={{ duration: 0.25 }}
-                        className='app__flex'
-                    >
-                        <BsGlobe />
-                    </motion.div>
-                    </a>
-                    <a href={codeLink} target="_blank" rel="noreferrer">
-                    <motion.div
-                        whileInView={{scale: [0, 1]}}
-                        whileHover={{scale: [1, 0.9]}}
-                        transition={{ duration: 0.25 }}
-                        className='app__flex'
-                    >
-                        <AiFillGithub />
-                    </motion.div>
-                    </a>
-                </motion.div>
+                    <img 
+                        src={urlFor(heroImg)}
+                        alt={name}
+                    />
                 </div>
 
                 <div className='app__work-content app__flex'>
-                <h4 className='bold-text'>{title}</h4>
-                <p className='p-text' style={{ marginTop: 10}}>{description.substring(0, 80) + "...  see more"}</p>
-                <div className='app__work-tag app__flex'>
-                    <p className='p-text'>{tags[0]}</p>
+                    <div className='app__work-tag app__flex'></div>
+                    <div className='separate-tags'>
+                        {tags?.map((item, index) => (
+                            <span className='p-text normal-spacing' key={index}>{item} </span>
+                        ))}
+                    </div>
                 </div>
-                </div>
+                <h4 className=''>{title}</h4>
+                <a href={projectLink} target="_blank" rel="noreferrer"><h5 className=''>{subProjectLink}</h5></a>
             </motion.div>
         </Link>
     </div>

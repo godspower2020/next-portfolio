@@ -9,7 +9,7 @@ const Resume = ({techStacks, versionControls, otherTechStacks, experiences}) => 
   return (
     <div id='resume'>
       <Head>
-        <title>My Resume - skills & experience</title>
+        <title>My Resume - skills & experiences</title>
       </Head>
       <div className='app__flex__justify-align-flex-start resume app__whitebg'>
         {/* <aside>
@@ -24,12 +24,12 @@ const Resume = ({techStacks, versionControls, otherTechStacks, experiences}) => 
           <div className='tech__stack'>
             <div className='apex apex-with-margin-on-small'>
                 <div className='info__links lh-1-5 mb-2'>
-                <a href='http://power.dev'>power.dev</a>
+                <a href='http://augustine.dev'>augustine.dev</a>
                 <p>Warri, Nigeria</p>
-                <a href='mailto: hello@power.dev'>hello@power.dev</a>
+                <a href='mailto: hello@augustine.dev'>hello@augustine.dev</a>
                 </div>
                     <div className='lh-1-5 mb-2'>
-                    <h3>Core Technology:</h3>
+                    <h3 style={{ wordWrap: 'breakWord' }}>Core Technology:</h3>
                     {techStacks.map((techStack) => <TechStack key={techStack._id} techStack={techStack} /> )}
                 </div>
             </div>
@@ -48,12 +48,12 @@ const Resume = ({techStacks, versionControls, otherTechStacks, experiences}) => 
             <div className='name__stack mb-5'>
               <h1 className='mb-0-5'>AUGUSTINE <br/> GODSPOWER</h1>
               <h2>Frontend developer | UI/UX Engineer | Crypto enthusiast</h2>
-              <p className='some-margins'>Engineer valued for driving high-performance accessible web experiences. I design quality, user-friendly and scalable products regardless of stack.</p>
+              <p className='some-margins'>Frontend Engineer valued for driving high-performance accessible web experiences. I design quality, user-friendly and scalable products providing a satisfactory user experience with no issues, errors, or downtime.</p>
             </div>
             {/* <hr /> */}
             <div className='experience__stack'>
               <h2>Experiences</h2>
-              <p className='small-margin'>I’ve worked on a handful of web projects over the past 11 years, some of which were for the following organizations:</p>
+              <p className='small-margin'>I’ve worked on a handful of web projects over the past 6 years, some of which were for the following organizations:</p>
           
               <ul className='companies'>
                 {experiences?.map((experience) => <Experiences key={experience._id} experience={experience} /> )}

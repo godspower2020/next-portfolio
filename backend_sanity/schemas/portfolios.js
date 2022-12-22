@@ -49,6 +49,11 @@ export default {
         type: 'string',
       },
       {
+        name: 'subProjectLink',
+        title: 'Sub Project Link',
+        type: 'string',
+      },
+      {
         name: 'codeLink',
         title: 'Code Link',
         type: 'string',
@@ -88,7 +93,7 @@ export default {
         of: [
          {
            name:'tag',
-           title:'Tag',
+           title:'Tag', 
            type:'string'
          }
        ]
@@ -105,5 +110,10 @@ export default {
          }
        ]
       },
+      {
+        name:'appleColor',
+        title:'apple Color',
+        type:'string'
+    }
     ],
   };

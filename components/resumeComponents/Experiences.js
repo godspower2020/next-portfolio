@@ -9,7 +9,7 @@ const Experiences = ({experience}) => {
       {experience.works.map((work) => (
         <>
           <header>
-            <h3 style={{color: work.color}}>{work.company} <span className='inherent-color'>{work.name}</span></h3>
+            <h3 style={{color: work.color}}>{work.company} - <span className='inherent-color'>{work.position}</span></h3>
             <span className='stop'>{experience.year}</span>
           </header> 
           <p className='work-info'>{work.desc}</p>
@@ -27,3 +27,4 @@ const Experiences = ({experience}) => {
 }
 
 export default Experiences
+
