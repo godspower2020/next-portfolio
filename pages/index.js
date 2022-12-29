@@ -88,7 +88,7 @@ const Home = ( {classNames, heroTitles, heroItems, abouts, skills, experience, t
                     > 
                     {item}
                     </motion.p>)} */}
-                    <h1>Frontend Developer</h1>
+                    <h1>Frontend Developer.</h1>
                   </div>
                   <div className="div-margin hero__text-div">
                     <div className='no-wrap'>Talk about:</div> 
