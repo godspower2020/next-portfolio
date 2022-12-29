@@ -9,22 +9,21 @@ import { Hero, About, Skills, Experiences, Testimonials } from '../components/ho
 import { Navbar, Contact, NavigationDots, SocialMedia } from '../components'
 
 const Home = ( {classNames, heroTitles, heroItems, abouts, skills, experience, testimonials} ) => {
-  const [scroll, setScroll] = useState('home')
   
-  // const hero = [
-  //   { 
-  //     title: 'Frontend Developer', 
-  //     color: '#313bac',
-  //   },
-  //   { 
-  //     title: 'UI/UX Engineer',
-  //     color: 'green', 
-  //   },
-  //   {
-  //     title: 'Designer',
-  //     color: 'red',   
-  //   }
-  // ];
+  const hero = [
+    { 
+      title: 'Frontend Developer', 
+      color: '#313bac',
+    },
+    { 
+      title: 'UI/UX Engineer',
+      color: 'green', 
+    },
+    {
+      title: 'Designer',
+      color: 'red',   
+    }
+  ];
 
   // const [title, setTitle] = useState(hero)
   // // const [activeTitle, setActiveTitle] = useState({})
@@ -54,20 +53,14 @@ const Home = ( {classNames, heroTitles, heroItems, abouts, skills, experience, t
   // scrollText(hero)
   // }, [])
 
-  const settings = {
-    className: "center app__profiles app__flex__align-items-flex-start",
-    centerMode: true,
-    infinite: false,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500
-  };
-
-  const router = useRouter()
-  
-  useEffect(() => {
-    router.pathname == '/' ? setScroll('home home-noscroll') : setScroll('home')
-  }, []);
+  // const settings = {
+  //   className: "center app__profiles app__flex__align-items-flex-start",
+  //   centerMode: true,
+  //   infinite: false,
+  //   centerPadding: "60px",
+  //   slidesToShow: 3,
+  //   speed: 500
+  // };
   
   return (
     <div id='home' className='home'>
@@ -95,6 +88,7 @@ const Home = ( {classNames, heroTitles, heroItems, abouts, skills, experience, t
                     > 
                     {item}
                     </motion.p>)} */}
+                    <h1>Frontend Developer.</h1>
                   </div>
                   <div className="div-margin hero__text-div">
                     <div className='no-wrap'>Talk about:</div> 

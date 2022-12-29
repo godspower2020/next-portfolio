@@ -6,17 +6,21 @@ import { RiSendPlaneLine  } from 'react-icons/ri';
 import toast, { Toaster } from "react-hot-toast";
 import {motion} from 'framer-motion'
 
-const navLinks = [ 
-  { name: "Home", 
-   path: "/" 
+const navLinks = [
+  { 
+    name: 'Home', 
+    path: '/',
+    target: ''
   },
   { 
-    name: "My Portfolio",
-    path: "/portfolio",
+    name: 'My Portfolio',
+    path: '/portfolio',
+    target: ''
   },
   {
-    name: "My Resume",
-    path: "/resume",
+    name: 'My Resume',
+    path: '/resume',
+    target: '_blank'
   },
 ];
 
@@ -50,13 +54,14 @@ const Contact = () => {
       }
     }]
 
-    const sanityToken = process.env.NEXT_SANITY_TOKEN
+    const sanityToken = 'process.env.NEXT_SANITY_TOKEN'
+    console.log(sanityToken)
 
     fetch(`https://78gvtlsb.api.sanity.io/v2022-03-10/data/mutate/production`, {
       method: 'post',
       headers: {
         'Content-type': 'application/json',
-        Authorization: `Bearer ${sanityToken}`
+        Authorization: `Bearer skfTjT98YpdOx7jCGSxnglDJkp0dqOoicylDhWZ3pySl7HIspdKwX6nDUqSpcQVTbCjDsiO9TDfpoqczD4JqwJknuDf9dKIudbjPWZ4b0Vy958XXi2Yz7klWjAHKf5nCSitMDVOTw3SPZApzy4bcMIEdvxwS3qCWcT5PlFICIROgCy9hMlqh`
       },
       body: JSON.stringify({mutations})
     })
@@ -91,7 +96,9 @@ const Contact = () => {
           </div>
           <ul className='app__flex__justify-align-flex-start column'>
             {navLinks.map((item, index) => (
-              <Link className='menu_link' key={index} href={item.path}>{item.name}</Link>
+              <p className={`${router.pathname == item.path ? 'menu_link-hide' : ''} menu_link`}>
+                <a target={item.target} key={index} href={item.path}>{item.name}</a>
+              </p>
             ))}
           </ul>
         </motion.div>

@@ -8,7 +8,7 @@ import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 import{ client, urlFor } from '../../lib/sanityClient';
 import { Navbar, Contact } from '../../components'
 
-const PortfolioDetails = ({ portfolio: {description, codeLink, companyNeeds, problemsFaced, solutionOne, solutionTwo, conclusion, company, slug, works, title, imgUrl}}) => {
+const PortfolioDetails = ({ portfolio: {description, projectLink, companyNeeds, problemsFaced, solutionOne, solutionTwo, conclusion, company, slug, works, title, imgUrl}}) => {
   const [index, setIndex] = useState(0)
 
   const handleClick = (i) => {
@@ -18,17 +18,17 @@ const PortfolioDetails = ({ portfolio: {description, codeLink, companyNeeds, pro
   return (
     <div className='grey-bg'>
       <Head>
-        <title>{slug.current} - Augustin's Portfolio</title>
+        <title>{slug.current} - Augustine's Portfolio</title>
       </Head>
       <Navbar />
       <div>
-          <div className="back">
+          <div className="back app__flex__justify-content-flex-start">
             <Link href="/portfolio">
               <HiOutlineArrowNarrowLeft />
             </Link>
+            <h2>{title}</h2>
           </div>
           <div className='portfolio-detail-container'>
-            <h2>{title}</h2>
             <div>
               <div className="portfolio-detail-image">
                 <div className='' onClick={() => handleClick(index === 0 ? imgUrl.length - 1 : index - 1)}>
@@ -78,7 +78,7 @@ const PortfolioDetails = ({ portfolio: {description, codeLink, companyNeeds, pro
               </div>
               <div className="project__code-link">
                 <span className='bold'>Website</span>
-                <p>Visit <span><a href={codeLink}>{title}</a></span></p>
+                <p>Visit <span><a href={projectLink}>{title}</a></span></p>
               </div>
             </div>
           </div>

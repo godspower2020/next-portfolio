@@ -7,38 +7,39 @@ import{ urlFor } from '../../lib/sanityClient';
 const PortfolioCard = ({portfolio: {heroImg, name, appleColor, projectLink, subProjectLink, slug, title, tags}, index}) => {
   return (
     <div>
-        <Link href={`/portfolio/${slug.current}`}>
-            <motion.div 
-                whileInView={{ opacity: 1 }}
-                whileHover={{ scale:1.02 }}
-                transition={{ duration: 0.5, type: 'tween' }}
-                className='app__work-item'
-                key={index}
-            >
-                <div className='colorful__apple-dots'>
-                    <div style={{backgroundColor: appleColor}}></div>
-                    <div style={{backgroundColor: appleColor}}></div>
-                    <div style={{backgroundColor: appleColor}}></div>
-                </div>
+        <motion.div 
+            whileInView={{ opacity: 1 }}
+            whileHover={{ scale:1.02 }}
+            transition={{ duration: 0.5, type: 'tween' }}
+            className='app__work-item'
+            key={index}
+        >
+            <div className='colorful__apple-dots'>
+                <div style={{backgroundColor: appleColor}}></div>
+                <div style={{backgroundColor: appleColor}}></div>
+                <div style={{backgroundColor: appleColor}}></div>
+            </div>
+            
+            <Link href={`/portfolio/${slug.current}`}>
                 <div className='app__work-img app__flex'>
                     <img 
                         src={urlFor(heroImg)}
                         alt={name}
                     />
                 </div>
-
-                <div className='app__work-content app__flex'>
-                    <div className='app__work-tag app__flex'></div>
-                    <div className='separate-tags'>
-                        {tags?.map((item, index) => (
-                            <span className='p-text normal-spacing' key={index}>{item} </span>
-                        ))}
-                    </div>
+            </Link>
+            
+            <div className='app__work-content app__flex'>
+                <div className='app__work-tag app__flex'></div>
+                <div className='separate-tags'>
+                    {tags?.map((item, index) => (
+                        <span className='p-text normal-spacing' key={index}>{item} </span>
+                    ))}
                 </div>
-                <h4 className=''>{title}</h4>
-                <a href={projectLink} target="_blank" rel="noreferrer"><h5 className=''>{subProjectLink}</h5></a>
-            </motion.div>
-        </Link>
+            </div>
+            <h4 className=''>{title}</h4>
+            <a href={projectLink} target="_blank" rel="noreferrer"><h5 className=''>{subProjectLink}</h5></a>
+        </motion.div>
     </div>
   )
 }

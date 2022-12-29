@@ -11,7 +11,7 @@ const navLinks = [
   },
   { 
     name: 'My Portfolio',
-    path: '/portfolio', 
+    path: '/portfolio',
     target: ''
   },
   {
@@ -23,15 +23,14 @@ const navLinks = [
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState('app__Navbar')
-  const [menulink, setMenulink] = useState('menu_link')
   const [active, setActive] = useState('app__Navbar-menu')
   const [toggleIcon, setToggleIcon] = useState('nav__toggler')
+  // const [isOpen, setIsOpen] = useState(false),
 
   const router = useRouter()
   
   useEffect(() => {
     router.pathname == '/' ? setNavbar('app__Navbar app__Navbar-fixed') : setNavbar('app__Navbar')
-    // router.pathname == '/' ? setMenulink('menu_link menu_link-hide') : setMenulink('menu_link')
   }, []);
 
   const navToggle = () => {
@@ -54,8 +53,8 @@ const Navbar = () => {
       <div className={`${active} app__flex`}> 
         <ul className='app__flex__justify-align-flex-start'>
         {navLinks.map((item, index) => (
-          <p className={menulink}>
-            <Link target={item.target} key={index} href={item.path}>{item.name}</Link>
+          <p className={`${router.pathname == item.path ? 'menu_link-hide' : ''} menu_link`}>
+            <a target={item.target} key={index} href={item.path}>{item.name}</a>
           </p>
         ))}
         </ul> 
