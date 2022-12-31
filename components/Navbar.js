@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { useRouter } from "next/router";
 import { motion } from 'framer-motion';
 
+import { SocialMedia } from './'
+
 const navLinks = [
   { 
     name: 'Home', 
@@ -50,14 +52,26 @@ const Navbar = () => {
         </Link>
       </div>
       
-      <div className={`${active} app__flex`}> 
-        <ul className='app__flex__justify-align-flex-start'>
-        {navLinks.map((item, index) => (
-          <p className={`${router.pathname == item.path ? 'menu_link-hide' : ''} menu_link`}>
-            <a target={item.target} key={index} href={item.path}>{item.name}</a>
-          </p>
-        ))}
-        </ul> 
+      <div className={`${active}`}> 
+        <div className='inner__flex'>
+          <ul className='app__flex__justify-align-flex-start'>
+            {navLinks.map((item, index) => (
+              <p className={`${router.pathname == item.path ? 'menu_link-hide' : ''} menu_link`}>
+                <a target={item.target} key={index} href={item.path}>{item.name}</a>
+              </p>
+            ))}
+          </ul> 
+          <br />
+          <br />
+          <br />
+          <br />
+          <div className='nav__social-text app__flex__justify-align-flex-start'>
+            <a style={{color: '#00acee'}} href='https://twitter.com/AugustineGods15' target='_blank'>Twitter</a>
+            <a className='instagram' href='https://www.instagram.com/godspower_augustine/' target='_blank'>instagram</a>
+            <a style={{color: '#171515'}} href='https://github.com/godspower2020' target='_blank'>Github</a>
+            <a style={{color: '#0072B1'}} href='https://www.linkedin.com/in/augustine-godspower-523a2b1a4/' target='_blank'>LinkedIn</a>
+          </div>
+        </div>
       </div>
       
       <div onClick={navToggle} className={toggleIcon}>

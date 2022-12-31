@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { motion } from 'framer-motion';
 
 import{ client } from '../lib/sanityClient';
-import { Navbar, SocialMedia } from '../components'
+import { Navbar, SocialMedia, Contact } from '../components'
 import { PortfolioCard } from '../components/portfolioComponents';
 
 const Portfolio = ({portfolios}) => {
@@ -37,14 +37,14 @@ const Portfolio = ({portfolios}) => {
       </Head>
       <div className='app'>
         <Navbar />
-          <h5 className='head-text remove-top-margin'>MY PORTFOLIO</h5>
+          <h5 className='head-text add-top-margin'>MY PORTFOLIO</h5>
 
           <div className="app__work-filter">
             {['All', 'e-commerce', 'UI/UX', 'Web-App'].map((item, index) => (
               <div
                 key={index}
                 onClick={() => handlePortfolioFilter(item)}
-                className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
+                className={`app__work-filter-item app__flex ${activeFilter === item ? 'item-active' : ''}`}
               >
                 {item}
               </div>
@@ -58,6 +58,8 @@ const Portfolio = ({portfolios}) => {
           >
             {filterPortfolio.map((portfolio, index) => <PortfolioCard key={portfolio._id} portfolio={portfolio} index={index} /> )}
           </motion.div>
+
+          <Contact />
       </div>
     </div>
   )

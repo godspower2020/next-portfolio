@@ -177,7 +177,7 @@ Prior to hellotax, I was Senior frontend engine</p>
             </motion.div>
           </div>
         </div>
-        <div id='Testimonial' className='app__container'>
+        {/* <div id='Testimonial' className='app__container'>
           <div className='app__wrapper app__flex'>
             <motion.div
               whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
@@ -190,7 +190,7 @@ Prior to hellotax, I was Senior frontend engine</p>
               </div>
             </motion.div>
           </div>
-        </div>
+        </div> */}
         <Contact />
       </div>
     </div>

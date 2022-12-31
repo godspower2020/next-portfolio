@@ -96,7 +96,7 @@ const Contact = () => {
           </div>
           <ul className='app__flex__justify-align-flex-start column'>
             {navLinks.map((item, index) => (
-              <p className={`${router.pathname == item.path ? 'menu_link-hide' : ''} menu_link`}>
+              <p className={`${router.pathname == item.path ? 'contact__menu_link-hide' : ''} contact__menu_link`}>
                 <a target={item.target} key={index} href={item.path}>{item.name}</a>
               </p>
             ))}
@@ -124,13 +124,15 @@ const Contact = () => {
           </div>
         </motion.div>
       </div>
-      <motion.div 
-        whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
-        transition={{duration: 0.9}}
-        className='footer app__flex'
-      >
+      <div className='footer'>
+        <div className='contact__social-text app__flex__justify-align-flex-start'>
+          <a style={{color: '#00acee'}} href='https://twitter.com/AugustineGods15' target='_blank'>Twitter</a>
+          <a className='instagram' href='https://www.instagram.com/godspower_augustine/' target='_blank'>instagram</a>
+          <a style={{color: '#171515'}} href='https://github.com/godspower2020' target='_blank'>Github</a>
+          <a style={{color: '#0072B1'}} href='https://www.linkedin.com/in/augustine-godspower-523a2b1a4/' target='_blank'>LinkedIn</a>
+        </div>
         <p>Copyright &copy; {year} </p>
-      </motion.div>
+      </div>
     </div>
   )
 }

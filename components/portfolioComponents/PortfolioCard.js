@@ -33,7 +33,7 @@ const PortfolioCard = ({portfolio: {heroImg, name, appleColor, projectLink, subP
                 <div className='app__work-tag app__flex'></div>
                 <div className='separate-tags'>
                     {tags?.map((item, index) => (
-                        <span className='p-text normal-spacing' key={index}>{item} </span>
+                        <span className='p-text normal-spacing-port-card' key={index}>{item} </span>
                     ))}
                 </div>
             </div>

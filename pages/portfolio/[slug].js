@@ -44,11 +44,10 @@ const PortfolioDetails = ({ portfolio: {description, projectLink, companyNeeds, 
               </div>
               <div className="small-images-container">
                 {imgUrl?.map((item, i) => (
-                  <motion.img 
+                  <motion.div 
                     whileInView={{ opacity: 1 }}
                     whileHover={{ scale:1.08 }}
                     transition={{ duration: 0.5, type: 'tween' }}
-                    src={urlFor(item)}
                     className={i === index ? 'small-image selected-image' : 'small-image'}
                     onMouseEnter={() => setIndex(i)}
                   />
