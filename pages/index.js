@@ -12,23 +12,36 @@ const Home = ( {classNames, heroTitles, heroItems, abouts, skills, experience, t
   
   const hero = [
     { 
-      title: 'Frontend Developer', 
+      title: 'Frontend Developer.', 
       color: '#313bac',
     },
     { 
-      title: 'UI/UX Engineer',
+      title: 'UI/UX Engineer.',
       color: 'green', 
     },
     {
-      title: 'Designer',
+      title: 'Designer.',
       color: 'red',   
     }
   ];
 
-  // const [title, setTitle] = useState(hero)
+  // const [heroTitle, setHeroTitle] = useState(hero[0].title)
+  // const [animateHeroTitle, setAnimateHeroTitle] = useState({ y: 0, opacity: 1 }) 
+
+  // useEffect(() => {
+  //   const heroTitleSlider = () => {
+  //     for(let i = 0; i < hero.length; i++){
+  //       setInterval(() => {
+  //         setHeroTitle(hero[i].title)
+  //         setAnimateHeroTitle([{y: 100, opacity: 0}])
+  //       }, 3000);
+  //     }
+  //   }
+
+  //   setHeroTitle(heroTitleSlider())
+  // }, [])
   // // const [activeTitle, setActiveTitle] = useState({})
   // // const [showActiveTitle, setShowActiveTitle] = useState(false)
-  // const [animateTitle, setAnimateTitle] = useState({ y: 0, opacity: 1 }) 
 
   // useEffect(() => {
   //   setTitle(hero)
@@ -88,6 +101,11 @@ const Home = ( {classNames, heroTitles, heroItems, abouts, skills, experience, t
                     > 
                     {item}
                     </motion.p>)} */}
+                    {/* <motion.h1 
+                      animate={animateHeroTitle}
+                    > 
+                      {heroTitle}
+                    </motion.h1> */}
                     <h1>Frontend Developer.</h1>
                   </div>
                   <div className="div-margin hero__text-div">

@@ -367,7 +367,7 @@ li {
     height: 2px;
     margin: 0.5rem auto;
     background: var(--secondary-color);
-    // transition: 0.3s ease-in;
+    transition: 0.3s ease-in;
   }
 
   .line1 {
@@ -383,7 +383,8 @@ li {
 
 // toggler Icon Animation
 .toggle .line1 {
-  transform: rotate(-45deg) translate(-7px, 5px);
+  width: 100%;
+  transform: rotate(314deg) translate(-6px, 7px);
 }
 
 .toggle .line2 {
@@ -391,7 +392,8 @@ li {
 }
 
 .toggle .line3 {
-  transform: rotate(45deg) translate(-7px, -5px);
+  width: 100%;
+  transform: rotate(45deg) translate(-7px, -8px);
 }
 
 .app__Navbar-menu {
@@ -404,7 +406,7 @@ li {
   width: 100vw;
   height: 100vh;
   display: none;
-  // transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
   background-color: var(--white-color);
 
   a {
