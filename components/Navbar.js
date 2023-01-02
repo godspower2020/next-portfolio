@@ -56,20 +56,56 @@ const Navbar = () => {
         <div className='inner__flex'>
           <ul className='app__flex__justify-align-flex-start'>
             {navLinks.map((item, index) => (
-              <p className={`${router.pathname == item.path ? 'menu_link-hide' : ''} menu_link`}>
+              <motion.p 
+                className={`${router.pathname == item.path ? 'menu_link-hide' : ''} menu_link`}
+                whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
+                transition={{duration: 0.5}}
+              >
                 <a target={item.target} key={index} href={item.path}>{item.name}</a>
-              </p>
+              </motion.p>
             ))}
           </ul> 
           <br />
           <br />
           <br />
           <br />
-          <div className='nav__social-text app__flex__justify-align-flex-start'>
-            <a style={{color: '#00acee'}} href='https://twitter.com/AugustineGods15' target='_blank'>Twitter</a>
-            <a className='instagram' href='https://www.instagram.com/godspower_augustine/' target='_blank'>instagram</a>
-            <a style={{color: '#171515'}} href='https://github.com/godspower2020' target='_blank'>Github</a>
-            <a style={{color: '#0072B1'}} href='https://www.linkedin.com/in/augustine-godspower-523a2b1a4/' target='_blank'>LinkedIn</a>
+          <div 
+            className='nav__social-text app__flex__justify-align-flex-start'
+          >
+            <motion.a 
+              style={{color: '#00acee'}} 
+              href='https://twitter.com/AugustineGods15' target='_blank'
+              whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
+              transition={{duration: 0.6}}
+            >
+              Twitter
+            </motion.a>
+            <motion.a 
+              className='instagram' href='https://www.instagram.com/godspower_augustine/' 
+              target='_blank'
+              whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
+              transition={{duration: 0.8}}
+            >
+              instagram
+            </motion.a>
+            <motion.a 
+              style={{color: '#171515'}} 
+              href='https://github.com/godspower2020' 
+              target='_blank'
+              whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
+              transition={{duration: 1}}
+            >
+              Github
+            </motion.a>
+            <motion.a 
+              style={{color: '#0072B1'}} 
+              href='https://www.linkedin.com/in/augustine-godspower-523a2b1a4/' 
+              target='_blank'
+              whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
+              transition={{duration: 1.2}}
+            >
+              LinkedIn
+            </motion.a>
           </div>
         </div>
       </div>

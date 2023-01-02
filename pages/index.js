@@ -121,7 +121,7 @@ const Home = ( {classNames, heroTitles, heroItems, abouts, skills, experience, t
               </motion.div>
               <motion.div
               whileInView={{opacity: [0, 1] }}
-              transition={{ duration: 0.8, delayChildern: 0.8 }}
+              transition={{ duration: 0.5, delayChildern: 0.5 }}
               className="app__header-img app__flex__justify-align-flex-end"
               >
                 <img src="profile.png" alt="profile_bg" />
@@ -178,7 +178,7 @@ Prior to hellotax, I was Senior frontend engine</p>
           <div className='app__wrapper app__flex'>
             <motion.div
               whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
-              transition={{duration: 0.9}}
+              transition={{duration: 0.4}}
               className={`${classNames} app__flex`}
             >
               <div>

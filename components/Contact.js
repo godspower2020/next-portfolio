@@ -83,7 +83,7 @@ const Contact = () => {
       <div className='contact__form-container'>
         <motion.div 
           whileInView={{ x: [-200, 0], opacity: [0, 1] }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className='admin-contact'
         >
           <div className='admin-contact-card'>
@@ -104,7 +104,7 @@ const Contact = () => {
         </motion.div>
         <motion.div 
           whileInView={{y: [120, 60, 0], opacity: [0,  0, 1]}}
-          transition={{duration: 0.9}}
+          transition={{duration: 0.4}}
           className='client__contact-details'
         >
           <div className='line'>
